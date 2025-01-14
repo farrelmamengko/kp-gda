@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampung Kwau - Warmare, Manokwari</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-mountain"></i>
+                <h1>KWAU VILLAGE</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="quick-nav">
+        <button class="toggle-nav-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="quick-nav-menu">
+            <a href="#home" class="quick-nav-btn">
+                <i class="fas fa-home"></i>
+                Beranda
+            </a>
+            <a href="#about" class="quick-nav-btn">
+                <i class="fas fa-info-circle"></i>
+                Tentang
+            </a>
+            <a href="#culture" class="quick-nav-btn">
+                <i class="fas fa-users"></i>
+                Budaya
+            </a>
+            <a href="#flora" class="quick-nav-btn">
+                <i class="fas fa-leaf"></i>
+                Flora
+            </a>
+            <a href="#fauna" class="quick-nav-btn">
+                <i class="fas fa-paw"></i>
+                Fauna
+            </a>
+            <a href="#gallery" class="quick-nav-btn">
+                <i class="fas fa-images"></i>
+                Galeri
+            </a>
+            <a href="#location" class="quick-nav-btn">
+                <i class="fas fa-map-marker-alt"></i>
+                Lokasi
+            </a>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari informasi tentang Kampung Kwau...">
+            <button type="button" id="searchButton">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">KWAU VILLAGE</h1>
+            <p class="hero-subtitle">Kampung Kwau, Warmare - Manokwari, Papua Barat</p>
+            <a href="#about" class="cta-button">
+                <i class="fas fa-compass"></i>
+                Jelajahi Kampung Kami
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Tentang Kampung Kwau</h2>
+            <button class="toggle-btn" data-target="about-content">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <div id="about-content" class="section-content show">
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Lokasi Strategis</h3>
+                    <p>Kampung Kwau terletak di Distrik Warmare, Kabupaten Manokwari, Papua Barat. Berjarak sekitar 30 kilometer dari pusat kota Manokwari.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Masyarakat</h3>
+                    <p>Dihuni oleh Suku Arfak yang memiliki kearifan lokal dalam menjaga kelestarian alam dan budaya tradisional.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Potensi Alam</h3>
+                    <p>Dikelilingi oleh Pegunungan Arfak yang kaya akan keanekaragaman hayati dan pemandangan alam yang memukau.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="details" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Informasi Lengkap</h2>
+            <button class="toggle-btn" data-target="details-content">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <div id="details-content" class="section-content show">
+            <div class="info-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="sejarah">
+                        <i class="fas fa-history"></i> Sejarah
+                    </button>
+                    <button class="tab-btn" data-tab="pendidikan">
+                        <i class="fas fa-school"></i> Pendidikan
+                    </button>
+                    <button class="tab-btn" data-tab="ekonomi">
+                        <i class="fas fa-coins"></i> Ekonomi
+                    </button>
+                    <button class="tab-btn" data-tab="kesehatan">
+                        <i class="fas fa-heartbeat"></i> Kesehatan
+                    </button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="sejarah">
+                        <h3>Sejarah Kampung Kwau</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">1950</div>
+                                <div class="timeline-content">
+                                    <h4>Awal Pembentukan</h4>
+                                    <p>Kampung Kwau mulai terbentuk sebagai pemukiman tradisional Suku Arfak</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">1970</div>
+                                <div class="timeline-content">
+                                    <h4>Pengembangan Wilayah</h4>
+                                    <p>Pembangunan infrastruktur dasar dan jalur transportasi</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2000</div>
+                                <div class="timeline-content">
+                                    <h4>Era Modern</h4>
+                                    <p>Pengembangan sebagai destinasi ekowisata dan konservasi alam</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="pendidikan">
+                        <h3>Fasilitas Pendidikan</h3>
+                        <div class="facilities-grid">
+                            <div class="facility-card">
+                                <i class="fas fa-school"></i>
+                                <h4>SD Negeri Kwau</h4>
+                                <p>Sekolah dasar yang melayani pendidikan dasar untuk anak-anak kampung</p>
+                            </div>
+                            <div class="facility-card">
+                                <i class="fas fa-book-reader"></i>
+                                <h4>Taman Bacaan</h4>
+                                <p>Fasilitas membaca untuk meningkatkan literasi masyarakat</p>
+                            </div>
+                            <div class="facility-card">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <h4>Pusat Pelatihan</h4>
+                                <p>Tempat pelatihan keterampilan tradisional dan modern</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="ekonomi">
+                        <h3>Potensi Ekonomi</h3>
+                        <div class="economy-stats">
+                            <div class="stat-card">
+                                <i class="fas fa-seedling"></i>
+                                <h4>Pertanian</h4>
+                                <ul>
+                                    <li>Tanaman Pangan</li>
+                                    <li>Sayuran Organik</li>
+                                    <li>Buah-buahan Lokal</li>
+                                </ul>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-store"></i>
+                                <h4>UMKM</h4>
+                                <ul>
+                                    <li>Kerajinan Tangan</li>
+                                    <li>Produk Olahan</li>
+                                    <li>Ekowisata</li>
+                                </ul>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-hands-helping"></i>
+                                <h4>Koperasi</h4>
+                                <ul>
+                                    <li>Simpan Pinjam</li>
+                                    <li>Pemasaran Produk</li>
+                                    <li>Pemberdayaan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="kesehatan">
+                        <h3>Fasilitas Kesehatan</h3>
+                        <div class="health-info">
+                            <div class="health-card">
+                                <i class="fas fa-clinic-medical"></i>
+                                <h4>Puskesmas Pembantu</h4>
+                                <p>Pelayanan kesehatan dasar untuk masyarakat kampung</p>
+                            </div>
+                            <div class="health-card">
+                                <i class="fas fa-user-md"></i>
+                                <h4>Posyandu</h4>
+                                <p>Pemeriksaan rutin untuk ibu dan anak</p>
+                            </div>
+                            <div class="health-card">
+                                <i class="fas fa-mortar-pestle"></i>
+                                <h4>Pengobatan Tradisional</h4>
+                                <p>Pelestarian pengetahuan obat-obatan tradisional</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="culture" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Budaya dan Kehidupan</h2>
+            <button class="toggle-btn" data-target="culture-content">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <div id="culture-content" class="section-content show">
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Rumah Adat</h3>
+                    <p>Memiliki rumah adat khas Suku Arfak yang disebut 'Igkojei', mencerminkan kearifan lokal dalam arsitektur tradisional.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Pertanian</h3>
+                    <p>Masyarakat menerapkan sistem pertanian tradisional 'Igya Ser Hanjop' yang menjaga keseimbangan alam.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-drum"></i>
+                    <h3>Seni Tradisional</h3>
+                    <p>Memiliki berbagai kesenian tradisional seperti tari-tarian dan musik yang masih dilestarikan hingga kini.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="biodiversity" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Flora & Fauna Kwau</h2>
+            <button class="toggle-btn" data-target="biodiversity-content">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <div id="biodiversity-content" class="section-content show">
+            <!-- Flora Section -->
+            <div class="bio-filter">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="flora">Flora</button>
+                <button class="filter-btn" data-filter="fauna">Fauna</button>
+            </div>
+
+            <div class="bio-container">
+                <h3 class="bio-subtitle"><i class="fas fa-leaf"></i> Kekayaan Flora</h3>
+                <div class="bio-grid" id="flora">
+                    <div class="bio-card bio-item flora">
+                        <img src="images/flora1.jpg" alt="Anggrek Papua">
+                        <div class="bio-content">
+                            <h4>Anggrek Papua</h4>
+                            <p>Berbagai jenis anggrek endemik Papua</p>
+                        </div>
+                    </div>
+                    <div class="bio-card bio-item flora">
+                        <img src="images/flora2.jpg" alt="Buah Merah">
+                        <div class="bio-content">
+                            <h4>Buah Merah</h4>
+                            <p>Tanaman khas Papua dengan kandungan antioksidan tinggi</p>
+                        </div>
+                    </div>
+                    <div class="bio-card bio-item flora">
+                        <img src="images/flora3.jpg" alt="Matoa">
+                        <div class="bio-content">
+                            <h4>Pohon Matoa</h4>
+                            <p>Buah khas Papua dengan rasa yang unik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="bio-subtitle"><i class="fas fa-paw"></i> Fauna Unik</h3>
+                <div class="bio-grid" id="fauna">
+                    <div class="bio-card bio-item fauna">
+                        <img src="images/fauna1.jpg" alt="Burung Cendrawasih">
+                        <div class="bio-content">
+                            <h4>Burung Cendrawasih</h4>
+                            <p>Habitat alami berbagai jenis burung cendrawasih</p>
+                        </div>
+                    </div>
+                    <div class="bio-card bio-item fauna">
+                        <img src="images/fauna2.jpg" alt="Kuskus">
+                        <div class="bio-content">
+                            <h4>Kuskus</h4>
+                            <p>Mamalia endemik Papua</p>
+                        </div>
+                    </div>
+                    <div class="bio-card bio-item fauna">
+                        <img src="images/fauna3.jpg" alt="Kupu-kupu">
+                        <div class="bio-content">
+                            <h4>Kupu-kupu Sayap Burung</h4>
+                            <p>Spesies kupu-kupu terbesar di dunia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informasi Tambahan -->
+            <div class="info-boxes">
+                <div class="info-box">
+                    <h3><i class="fas fa-clock"></i> Waktu Terbaik Mengunjungi</h3>
+                    <ul>
+                        <li>Musim Kering (April - Oktober)</li>
+                        <li>Pagi hari untuk pengamatan burung</li>
+                        <li>Sore hari untuk flora dan landscape</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3><i class="fas fa-exclamation-circle"></i> Panduan Wisata</h3>
+                    <ul>
+                        <li>Wajib didampingi pemandu lokal</li>
+                        <li>Membawa peralatan hiking</li>
+                        <li>Tidak merusak flora dan fauna</li>
+                        <li>Mengikuti jalur yang ditentukan</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3><i class="fas fa-camera"></i> Spot Fotografi</h3>
+                    <ul>
+                        <li>Habitat Cendrawasih</li>
+                        <li>Kebun Anggrek Alam</li>
+                        <li>Air Terjun</li>
+                        <li>Puncak Bukit Panorama</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="section-header">
+            <h2 class="section-title">Galeri Alam Kwau</h2>
+            <button class="toggle-btn" data-target="gallery-content">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <div id="gallery-content" class="section-content show">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gallery1.jpg" alt="Pegunungan Arfak">
+                    <div class="gallery-overlay">
+                        <h3>Pegunungan Arfak</h3>
+                        <p>Pemandangan megah pegunungan yang mengelilingi Kampung Kwau</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery2.jpg" alt="Hutan Hujan">
+                    <div class="gallery-overlay">
+                        <h3>Hutan Hujan</h3>
+                        <p>Keanekaragaman hayati hutan Papua</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery3.jpg" alt="Sungai">
+                    <div class="gallery-overlay">
+                        <h3>Aliran Sungai</h3>
+                        <p>Sungai jernih yang mengalir di kampung</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery4.jpg" alt="Kebun Tradisional">
+                    <div class="gallery-overlay">
+                        <h3>Kebun Tradisional</h3>
+                        <p>Sistem pertanian tradisional yang masih dilestarikan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery5.jpg" alt="Rumah Adat">
+                    <div class="gallery-overlay">
+                        <h3>Rumah Adat</h3>
+                        <p>Arsitektur tradisional yang mencerminkan kearifan lokal</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery6.jpg" alt="Kegiatan Masyarakat">
+                    <div class="gallery-overlay">
+                        <h3>Kegiatan Masyarakat</h3>
+                        <p>Kehidupan sehari-hari masyarakat Kampung Kwau</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Lokasi Kami</h2>
+            <button class="toggle-btn" data-target="location-content">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+        <div id="location-content" class="section-content show">
+            <div class="location-container">
+                <div class="location-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marked-alt"></i> Alamat Lengkap</h3>
+                        <p>Kampung Kwau</p>
+                        <p>Distrik Warmare</p>
+                        <p>Kabupaten Manokwari</p>
+                        <p>Provinsi Papua Barat</p>
+                        <p>Indonesia 98355</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-route"></i> Akses & Transportasi</h3>
+                        <ul class="access-list">
+                            <li>• 30 km dari Kota Manokwari</li>
+                            <li>• Dapat ditempuh dengan kendaraan roda empat</li>
+                            <li>• Waktu tempuh ± 1 jam dari pusat kota</li>
+                            <li>• Rute: Manokwari - Warmare - Kampung Kwau</li>
+                            <li>• Tersedia transportasi umum dari Terminal Wosi</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> Petunjuk Arah</h3>
+                        <p>Dari Kota Manokwari:</p>
+                        <ol class="direction-list">
+                            <li>1. Menuju arah Distrik Warmare</li>
+                            <li>2. Ikuti jalan utama SP4 Warmare</li>
+                            <li>3. Belok kiri di persimpangan Kwau</li>
+                            <li>4. Ikuti jalan setapak menuju kampung</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed -->
+                <div class="map-container">
+                    <h3><i class="fas fa-map"></i> Peta Lokasi</h3>
+                    <div class="google-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127504.92920649712!2d133.91666655!3d-1.0275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d52e4ca6c24327d%3A0x3776e9acf6977c1!2sWarmare%2C%20Kabupaten%20Manokwari%2C%20Papua%20Bar.!5e0!3m2!1sid!2sid!4v1709704544932!5m2!1sid!2sid"
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Denah Lokasi -->
+                <div class="site-map">
+                    <h3><i class="fas fa-map-signs"></i> Denah Kampung</h3>
+                    <div class="site-map-container">
+                        <div class="map-legend">
+                            <h4>Keterangan:</h4>
+                            <ul>
+                                <li><span class="legend-dot red"></span> Balai Kampung</li>
+                                <li><span class="legend-dot blue"></span> Area Pemukiman</li>
+                                <li><span class="legend-dot green"></span> Lahan Pertanian</li>
+                                <li><span class="legend-dot yellow"></span> Tempat Ibadah</li>
+                                <li><span class="legend-dot purple"></span> Fasilitas Umum</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Kampung Kwau</h3>
+                <p>Melestarikan Budaya, Membangun Masa Depan</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Distrik Warmare, Manokwari</p>
+                <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Media Sosial</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/farrel_mamengko?igsh=MWl2Z2Q1NzJsaGQwaA%3D%3D&utm_source=qr" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Kampung Kwau, Warmare - Manokwari. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chat-container">
+        <button class="chat-toggle">
+            <i class="fas fa-comments"></i>
+        </button>
+        
+        <div class="chat-box">
+            <div class="chat-header">
+                <h3>Asisten Kwau</h3>
+                <button class="close-chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Halo! Saya asisten virtual Kampung Kwau. Ada yang bisa saya bantu?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" placeholder="Ketik pesan..." id="user-input">
+                <button id="send-message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
