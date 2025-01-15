@@ -230,4 +230,26 @@ document.addEventListener('DOMContentLoaded', function() {
             addMessage('bot', response);
         }, 500);
     }
+
+    // Menangani pengiriman komentar
+    const commentForm = document.getElementById('commentForm');
+    const commentInput = document.getElementById('commentInput');
+    const commentList = document.getElementById('commentList');
+
+    commentForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah reload halaman
+
+        const commentText = commentInput.value;
+
+        // Membuat elemen komentar baru
+        const commentItem = document.createElement('div');
+        commentItem.classList.add('comment-item');
+        commentItem.textContent = commentText;
+
+        // Menambahkan komentar ke daftar
+        commentList.appendChild(commentItem);
+
+        // Mengosongkan input
+        commentInput.value = '';
+    });
 }); 
