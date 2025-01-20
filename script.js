@@ -233,23 +233,104 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Menangani pengiriman komentar
     const commentForm = document.getElementById('commentForm');
-    const commentInput = document.getElementById('commentInput');
     const commentList = document.getElementById('commentList');
-
-    commentForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Mencegah reload halaman
-
-        const commentText = commentInput.value;
-
-        // Membuat elemen komentar baru
-        const commentItem = document.createElement('div');
-        commentItem.classList.add('comment-item');
-        commentItem.textContent = commentText;
-
-        // Menambahkan komentar ke daftar
-        commentList.appendChild(commentItem);
-
-        // Mengosongkan input
-        commentInput.value = '';
+    
+    // Load comments from localStorage
+    loadComments();
+    
+    commentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const rating = document.getElementById('rating').value;
+        
+        // Create new comment
+        const comment = {
+            id: Date.now(),
+            name: name,
+            email: email,
+            message: message,
+            rating: parseInt(rating),
+            date: new Date().toISOString()
+        };
+        
+        // Save comment
+        saveComment(comment);
+        
+        // Reset form
+        commentForm.reset();
+        
+        // Show success message
+        showNotification('Komentar berhasil ditambahkan!');
     });
+    
+    function saveComment(comment) {
+        // Get existing comments
+        let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+        
+        // Add new comment
+        comments.unshift(comment);
+        
+        // Save to localStorage
+        localStorage.setItem('comments', JSON.stringify(comments));
+        
+        // Refresh comment list
+        loadComments();
+    }
+    
+    function loadComments() {
+        const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+        
+        commentList.innerHTML = comments.map(comment => `
+            <div class="comment-item">
+                <div class="comment-header">
+                    <span class="comment-author">
+                        <i class="fas fa-user"></i> ${comment.name}
+                    </span>
+                    <span class="comment-rating">
+                        ${'⭐'.repeat(comment.rating)}
+                    </span>
+                </div>
+                <div class="comment-content">
+                    ${comment.message}
+                </div>
+                <div class="comment-date">
+                    <i class="fas fa-clock"></i>
+                    ${formatDate(comment.date)}
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    function formatDate(dateString) {
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        return new Date(dateString).toLocaleDateString('id-ID', options);
+    }
+    
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 3000);
+    }
 }); 
