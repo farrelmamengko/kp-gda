@@ -231,58 +231,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 
-    // Menangani pengiriman komentar
+    // Handle Comment Form
     const commentForm = document.getElementById('commentForm');
     const commentList = document.getElementById('commentList');
-    
-    // Load comments from localStorage
-    loadComments();
-    
-    commentForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        const rating = document.getElementById('rating').value;
-        
-        // Create new comment
-        const comment = {
-            id: Date.now(),
-            name: name,
-            email: email,
-            message: message,
-            rating: parseInt(rating),
-            date: new Date().toISOString()
-        };
-        
-        // Save comment
-        saveComment(comment);
-        
-        // Reset form
-        commentForm.reset();
-        
-        // Show success message
-        showNotification('Komentar berhasil ditambahkan!');
-    });
-    
-    function saveComment(comment) {
-        // Get existing comments
-        let comments = JSON.parse(localStorage.getItem('comments') || '[]');
-        
-        // Add new comment
-        comments.unshift(comment);
-        
-        // Save to localStorage
-        localStorage.setItem('comments', JSON.stringify(comments));
-        
-        // Refresh comment list
-        loadComments();
+    const sortComments = document.getElementById('sortComments');
+
+    // Load comments from API
+    async function loadComments() {
+        try {
+            const response = await fetch('http://localhost:3000/api/comments');
+            const comments = await response.json();
+            displayComments(comments);
+        } catch (err) {
+            console.error('Error loading comments:', err);
+            // Fallback ke localStorage jika API gagal
+            const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            displayComments(comments);
+        }
     }
-    
-    function loadComments() {
-        const comments = JSON.parse(localStorage.getItem('comments') || '[]');
-        
+
+    // Save comment to API
+    async function saveComment(comment) {
+        try {
+            const response = await fetch('http://localhost:3000/api/comments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(comment)
+            });
+
+            if (response.ok) {
+                await loadComments();
+                showNotification('Komentar berhasil disimpan!');
+            } else {
+                throw new Error('Gagal menyimpan komentar');
+            }
+        } catch (err) {
+            console.error('Error saving comment:', err);
+            // Fallback ke localStorage
+            const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+            comments.unshift(comment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+            loadComments();
+            showNotification('Komentar disimpan secara lokal');
+        }
+    }
+
+    // Display comments
+    function displayComments(comments) {
         commentList.innerHTML = comments.map(comment => `
             <div class="comment-item">
                 <div class="comment-header">
@@ -290,31 +287,39 @@ document.addEventListener('DOMContentLoaded', function() {
                         <i class="fas fa-user"></i> ${comment.name}
                     </span>
                     <span class="comment-rating">
-                        ${'⭐'.repeat(comment.rating)}
+                        ${'★'.repeat(comment.rating)}${'☆'.repeat(5-comment.rating)}
                     </span>
                 </div>
-                <div class="comment-content">
-                    ${comment.message}
-                </div>
+                <div class="comment-content">${comment.message}</div>
                 <div class="comment-date">
-                    <i class="fas fa-clock"></i>
-                    ${formatDate(comment.date)}
+                    <i class="fas fa-clock"></i> ${new Date(comment.date).toLocaleDateString()}
                 </div>
             </div>
         `).join('');
     }
-    
-    function formatDate(dateString) {
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
+
+    // Update event listener
+    commentForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const comment = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+            rating: document.querySelector('input[name="rating"]:checked').value,
+            date: new Date().toISOString()
         };
-        return new Date(dateString).toLocaleDateString('id-ID', options);
-    }
-    
+        
+        await saveComment(comment);
+        commentForm.reset();
+    });
+
+    // Sort comments
+    sortComments.addEventListener('change', loadComments);
+
+    // Load comments on page load
+    loadComments();
+
     function showNotification(message) {
         const notification = document.createElement('div');
         notification.className = 'notification';
